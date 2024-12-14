@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -8,19 +9,16 @@ namespace Snowflake;
 
 public class KeyPairAuthentication
 {
-    private readonly string PrivateKey;
-    private readonly string PrivateKeyPassphrase;
-    private readonly string PublicKeyFingerprint;
-    private readonly string AccountIdentifier;
-    private readonly string User;
+    private readonly KeyPairSettings _settings;
+    private string PrivateKey => _settings.PrivateKey;
+    private string PrivateKeyPassphrase => _settings.PrivateKeyPassphrase;
+    private string PublicKeyFingerprint => _settings.PublicKeyFingerprint;
+    private string AccountIdentifier => _settings.AccountIdentifier;
+    private string User => _settings.User;
 
-    public KeyPairAuthentication(string privateKey, string privateKeyPassphrase, string publicKey, string accountIdentifier, string user)
+    public KeyPairAuthentication(IOptions<KeyPairSettings> settings)
     {
-        PrivateKey = privateKey;
-        PrivateKeyPassphrase = privateKeyPassphrase;
-        PublicKeyFingerprint = publicKey;
-        AccountIdentifier = accountIdentifier;
-        User = user;
+        _settings = settings.Value;
     }
 
     private string BuildJwtToken()

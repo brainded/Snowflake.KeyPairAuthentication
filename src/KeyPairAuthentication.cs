@@ -40,7 +40,7 @@ public class KeyPairAuthentication
         if (PublicKeyFingerprint != publicKeyFingerprint) throw new FingerprintMismatchException();
 
         var utcNow = DateTimeOffset.UtcNow;
-        var expires = utcNow.DateTime.Add(tokenLifetime ?? TimeSpan.FromMinutes(15));
+        var expires = utcNow.Add(tokenLifetime ?? TimeSpan.FromMinutes(15));
 
         var subject = $"{AccountIdentifier}.{User}".ToUpper();
         var claims = new Claim[]
@@ -60,7 +60,7 @@ public class KeyPairAuthentication
         var token = new JwtSecurityToken(
             issuer: issuer,
             claims: claims,
-            expires: expires,
+            expires: expires.UtcDateTime,
             signingCredentials: signingCredentials);
 
         var tokenHandler = new JwtSecurityTokenHandler();

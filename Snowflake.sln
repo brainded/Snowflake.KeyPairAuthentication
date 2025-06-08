@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snowflake.KeyPairAuthentication", "src\Snowflake.KeyPairAuthentication.csproj", "{C830888E-1EEB-48E4-9E54-E1269EF4EAA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake.Tests", "test\Snowflake.Tests.csproj", "{72D57E4C-E7BC-4F7E-8C6B-9C44BA6BA615}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{C830888E-1EEB-48E4-9E54-E1269EF4EAA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C830888E-1EEB-48E4-9E54-E1269EF4EAA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C830888E-1EEB-48E4-9E54-E1269EF4EAA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D57E4C-E7BC-4F7E-8C6B-9C44BA6BA615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D57E4C-E7BC-4F7E-8C6B-9C44BA6BA615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D57E4C-E7BC-4F7E-8C6B-9C44BA6BA615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D57E4C-E7BC-4F7E-8C6B-9C44BA6BA615}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DA3139B-9740-40C8-BF89-03C4547986E6}
 	EndGlobalSection
 EndGlobal
